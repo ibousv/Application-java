@@ -1,0 +1,15 @@
+Technologies 
+Java Swing:
+Swing permet de développer des applications graphiques portables en Java.
+Cela signifie que ces applications fonctionneront de manière identique quels
+que soient le système d’exploitation et l’environnement graphique utilisé.
+Swing a été conçu plus spécifiquement pour créer des applications pour 
+ordinateur de bureau (desktop environment). Il est composé d’un ensemble
+de classes qui se trouvent dans le package javax.swing ainsi que dans ses sous-packages.
+
+JavaFx:
+JavaFX  est le successeur officiel de Swing. Il permet de développer des clients riches 
+tout en simplifiant leur développement grâce au langage FXML et l'outil SceneBuilder d'Oracle.
+La richesse de l'API autorise des effets visuels comme la manipulation de contenu multimédia.
+JavaFX permet au développeur de créer, dessiner, tester, déboguer et déployer des applications 
+client riche qui fonctionnent de façon cohérente sur des plateformes différentes. 
