@@ -1,0 +1,8 @@
+PDF est l’abréviation de Portable Document Format. Ce format de fichier polyvalent 
+a été inventé par Adobe pour faciliter la présentation et l’échange de documents en 
+toute sécurité, quel que soit le matériel, l’application ou le système d’exploitation utilisé. 
+Apache iText et Apache PDFBox sont des bibliothèques Java open source qui prennent 
+en charge le développement et la conversion de documents PDF.
+
+Un QR code est la représentation graphique d'un message. C'est en quelque sorte un code-barre en deux dimensions. 
+Zxing ou encore zebra crossing est une bibliothèque qui permet de générer un qr code.
