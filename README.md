@@ -6,7 +6,7 @@ Application de Gestion Scolaire
  <li>Semaine-1</li>
  <ul> Recherche,Documentation et modélisation de l'application </ul>
  <li>Semaine-2 & 3</li>
- <ul> Rédaction du code </ul>
+ <ul> Rédaction du code et révision du model </ul>
  <li> Pour les 4 jours restant </li>
  <ul>review</ul>
  <ul>test</ul>
