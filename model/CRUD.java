@@ -1,0 +1,11 @@
+/**
+ * 
+ */
+package model;
+
+/**
+ * 
+ */
+interface CRUD {
+	
+}
