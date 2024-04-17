@@ -1,19 +1,16 @@
-import java.util.Collection;
+package model;
 
-public class Administrateur extends Utilisateur {
+import java.util.List;
 
+public class Administrateur {
 	private Notes lesNotes;
-
 	private Cours lesCours;
-
 	private Etudiant lesEtudiants;
-
-	private Collection<Cours> cours;
-
-	private Collection<Notes> notes;
-
-	private Collection<Etudiant> etudiant;
-
+	private List<Cours> cours;
+	private List<Notes> notes;
+	private  List<Etudiant> etudiant;
+	
+	Base base = new Base();
 	public void inscriptEt() {
 
 	}
@@ -41,5 +38,4 @@ public class Administrateur extends Utilisateur {
 	public void getId() {
 
 	}
-
 }

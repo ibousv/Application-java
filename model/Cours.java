@@ -1,12 +1,13 @@
-import java.util.Collection;
+package model;
+
+import java.util.List;
 
 public class Cours {
-
 	private String nom;
 
 	private int coeff;
 
-	private Collection<Administrateur> administrateur;
+	private List<Administrateur> administrateur;
 
 	private Notes notes;
 
@@ -21,5 +22,4 @@ public class Cours {
 	public void suppCours() {
 
 	}
-
 }

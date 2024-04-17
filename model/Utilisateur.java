@@ -1,5 +1,6 @@
-public abstract class Utilisateur {
+package model;
 
+public class Utilisateur {
 	private String nom;
 
 	private String prenom;

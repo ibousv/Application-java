@@ -1,16 +1,15 @@
-import java.util.Collection;
+package model;
+
+import java.util.List;
 
 public class Notes {
-
 	private int valeur;
 
 	private Cours cours;
 
 	private Etudiant etudiant;
 
-	private Collection<Administrateur> administrateur;
-
-	private Cours cours;
+	private List<Administrateur> administrateur;
 
 	public void save() {
 
