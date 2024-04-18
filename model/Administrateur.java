@@ -11,6 +11,7 @@ public class Administrateur {
 	private  List<Etudiant> etudiant;
 	
 	Base base = new Base();
+
 	public void inscriptEt() {
 
 	}
