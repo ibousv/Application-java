@@ -10,7 +10,7 @@ public class Administrateur {
 	private List<Notes> notes;
 	private  List<Etudiant> etudiant;
 	
-	Base base = new Base();
+	//Base base = new Base();
 
 	public void inscriptEt() {
 
@@ -38,5 +38,11 @@ public class Administrateur {
 
 	public void getId() {
 
+	}
+
+	public static void main(String[] args) {
+		//Test connection
+		Base b = new Base();
+		b.connection();
 	}
 }
