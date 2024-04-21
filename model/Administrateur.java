@@ -2,7 +2,12 @@ package model;
 
 import java.util.List;
 
-public class Administrateur {
+public class Administrateur extends Utilisateur{
+
+	public Administrateur(String nom, String prenom, long id) {
+		super(nom, prenom, id);
+	}
+
 	private Notes lesNotes;
 	private Cours lesCours;
 	private Etudiant lesEtudiants;
@@ -10,9 +15,11 @@ public class Administrateur {
 	private List<Notes> notes;
 	private  List<Etudiant> etudiant;
 	
-	//Base base = new Base();
+	Base base = new Base();
 
-	public void inscriptEt() {
+	public void inscriptEt(Etudiant e) {
+		base.connection();
+
 
 	}
 

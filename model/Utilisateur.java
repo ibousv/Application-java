@@ -7,4 +7,10 @@ public class Utilisateur {
 
 	private long id;
 
+	public Utilisateur(String nom, String prenom, long id) {
+		this.nom = nom;
+		this.prenom = prenom;
+		this.id = id;
+	}
+
 }
