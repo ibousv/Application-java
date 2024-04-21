@@ -3,6 +3,7 @@ package model;
 import java.util.List;
 
 public class Cours {
+	
 	private String nom;
 
 	private int coeff;
