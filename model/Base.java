@@ -50,7 +50,7 @@ final class Base implements CRUD {
 			pre = con.prepareStatement(sql);
 			re = pre.executeQuery();
 			while (re.next()) {
-
+				// Gestion de l'affichage
 			}
 		} catch (Exception ex) {
 			ex.getMessage();
