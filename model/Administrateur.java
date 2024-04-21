@@ -46,14 +46,4 @@ public class Administrateur extends Utilisateur {
 		return 0;
 	}
 
-	public static void main(String[] args) {
-		Base b = new Base();
-		b.connection();
-		try {
-			b.testDisplay();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
-	}
 }

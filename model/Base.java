@@ -22,19 +22,14 @@ final class Base implements CRUD {
 		}
 	}
 
-
-	public void testDisplay() throws Exception{
+	public void testDisplay() throws Exception {
 		String sql = "show tables ";
-		
 		pre = con.prepareStatement(sql);
-
 		re = pre.executeQuery();
-
 		while (re.next()) {
 			String name = re.getString("Tables_in_ags");
 			System.out.println(name);
 		}
-
 	}
 
 	public void insert(Utilisateur u) {
@@ -50,7 +45,16 @@ final class Base implements CRUD {
 	}
 
 	public void display(Etudiant e) {
-	
+		String sql = "select * from etudiants ";
+		try {
+			pre = con.prepareStatement(sql);
+			re = pre.executeQuery();
+			while (re.next()) {
+
+			}
+		} catch (Exception ex) {
+			ex.getMessage();
+		}
 	}
 
 	public void display(Cours c) {
