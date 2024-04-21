@@ -10,9 +10,11 @@ final class Base implements CRUD {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 
-			Connection con = DriverManager.getConnection("jdbc://localhost:3306/ags", "root", "31012003");
+			Connection con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/ags", "root", "31012003");
+			if (con!=null) {
+				System.out.println("Connected to the database test1");
+			}
 			
-			System.out.println("connexion reussi");
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {
