@@ -40,9 +40,4 @@ public class Administrateur {
 
 	}
 
-	public static void main(String[] args) {
-		//Test connection
-		Base b = new Base();
-		b.connection();
-	}
 }
