@@ -6,17 +6,35 @@ import com.mysql.cj.jdbc.Driver;
 
 final class Base implements CRUD {
 
+	Connection con;
+	PreparedStatement pre;
+	ResultSet re;
+
 	protected void connection() {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
+			con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/ags", "root", "31012003");
 
-			Connection con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/ags", "root", "31012003");
-			
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+	}
+
+
+	public void testDisplay() throws Exception{
+		String sql = "show tables ";
+		
+		pre = con.prepareStatement(sql);
+
+		re = pre.executeQuery();
+
+		while (re.next()) {
+			String name = re.getString("Tables_in_ags");
+			System.out.println(name);
+		}
+
 	}
 
 	public void insert(Utilisateur u) {
@@ -31,8 +49,8 @@ final class Base implements CRUD {
 
 	}
 
-	public void display(Utilisateur u) {
-
+	public void display(Etudiant e) {
+	
 	}
 
 	public void display(Cours c) {

@@ -2,7 +2,7 @@ package model;
 
 import java.util.List;
 
-public class Administrateur extends Utilisateur{
+public class Administrateur extends Utilisateur {
 
 	public Administrateur(String nom, String prenom, long id) {
 		super(nom, prenom, id);
@@ -13,13 +13,12 @@ public class Administrateur extends Utilisateur{
 	private Etudiant lesEtudiants;
 	private List<Cours> cours;
 	private List<Notes> notes;
-	private  List<Etudiant> etudiant;
-	
+	private List<Etudiant> etudiant;
+
 	Base base = new Base();
 
 	public void inscriptEt(Etudiant e) {
 		base.connection();
-
 
 	}
 
@@ -43,8 +42,18 @@ public class Administrateur extends Utilisateur{
 
 	}
 
-	public void getId() {
-
+	public long getId() {
+		return 0;
 	}
 
+	public static void main(String[] args) {
+		Base b = new Base();
+		b.connection();
+		try {
+			b.testDisplay();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+	}
 }

@@ -3,8 +3,8 @@ package model;
 /**
  * 
  * 
- * Interface
- * Container of all methods -- CRUD
+ * Interface CRUD
+ * Container of all methods ->
  * insert() display() delete() update()
  * @author ib
  * @version v1.0.0
@@ -30,10 +30,10 @@ interface CRUD {
 
 	/**
 	 * 
-	 * @param u
+	 * @param e
 	 */
-	void display(Utilisateur u);
-
+	void display(Etudiant e);
+	
 	/**
 	 * 
 	 * @param c
@@ -52,7 +52,7 @@ interface CRUD {
 	 */
 	void update(Etudiant e);
 
-	/
+	
 	void update(Cours c);
 
 	//
