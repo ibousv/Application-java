@@ -8,19 +8,36 @@ public class Cours {
 
 	private int coeff;
 
-	private List<Administrateur> administrateur;
-
 	private Notes notes;
 
-	public void ajoutCours() {
-
+	public Cours(String nom, int coeff, Notes notes) {
+		this.nom = nom;
+		this.coeff = coeff;
+		this.notes = notes;
 	}
 
-	public void modCours() {
-
+	public String getNom() {
+		return nom;
 	}
 
-	public void suppCours() {
-
+	public void setNom(String nom) {
+		this.nom = nom;
 	}
+
+	public int getCoeff() {
+		return coeff;
+	}
+
+	public void setCoeff(int coeff) {
+		this.coeff = coeff;
+	}
+
+	public Notes getNotes() {
+		return notes;
+	}
+
+	public void setNotes(Notes notes) {
+		this.notes = notes;
+	}
+	
 }
