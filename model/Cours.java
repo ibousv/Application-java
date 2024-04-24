@@ -6,12 +6,10 @@ public class Cours {
 
 	private int coeff;
 
-	private Notes notes;
 
-	public Cours(String nom, int coeff, Notes notes) {
+	public Cours(String nom, int coeff) {
 		this.nom = nom;
 		this.coeff = coeff;
-		this.notes = notes;
 	}
 
 	public String getNom() {
@@ -33,9 +31,4 @@ public class Cours {
 	public Notes getNotes() {
 		return notes;
 	}
-
-	public void setNotes(Notes notes) {
-		this.notes = notes;
-	}
-	
 }

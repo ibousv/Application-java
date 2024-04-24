@@ -8,5 +8,4 @@ public class Notes {
 		this.valeur = valeur;
 		this.cours = cours;
 	}
-
 }
