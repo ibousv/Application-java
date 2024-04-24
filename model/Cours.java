@@ -27,8 +27,4 @@ public class Cours {
 	public void setCoeff(int coeff) {
 		this.coeff = coeff;
 	}
-
-	public Notes getNotes() {
-		return notes;
-	}
 }
