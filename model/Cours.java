@@ -4,12 +4,12 @@ public class Cours {
 	
 	private String nom;
 
-	private int coeff;
+	private String enseignant;
 
 
-	public Cours(String nom, int coeff) {
+	public Cours(String nom, String enseignant) {
 		this.nom = nom;
-		this.coeff = coeff;
+		this.enseignant = enseignant;
 	}
 
 	public String getNom() {
@@ -20,11 +20,13 @@ public class Cours {
 		this.nom = nom;
 	}
 
-	public int getCoeff() {
-		return coeff;
+	public String getEnseignant() {
+		return enseignant;
 	}
 
-	public void setCoeff(int coeff) {
-		this.coeff = coeff;
+	public void setEnseignant(String enseignant) {
+		this.enseignant = enseignant;
 	}
+
+
 }
