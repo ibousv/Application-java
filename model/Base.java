@@ -22,19 +22,6 @@ final class Base implements CRUD {
 		}
 	}
 
-	/*
-	 * public void testDisplay() throws Exception {
-	 * String sql = "show tables ";
-	 * pre = con.prepareStatement(sql);
-	 * re = pre.executeQuery();
-	 * while (re.next()) {
-	 * String name = re.getString("Tables_in_ags");
-	 * System.out.println(name);
-	 * }
-	 * 
-	 * }
-	 */
-
 	public void insert(Utilisateur u) {
 		if (u instanceof Administrateur) {
 			String sql = "select * from administrateurs where login = ?";
@@ -43,10 +30,16 @@ final class Base implements CRUD {
 				pre.setString(1, u.getLogin());
 				re = pre.executeQuery();
 				if (re.getRow() == 0) {
-					sql = "insert into administrateurs values ()";
-
+					sql = "insert into administrateurs values (?,?,?)";
+					pre = con.prepareStatement(sql);
+					pre.setString(1, u.getLogin());
+					pre.setString(2, u.getNom());
+					pre.setString(1, u.getPrenom());
+					pre.setString(1, u.getPassword());
+					re = pre.executeQuery();
+					con.close();
 				} else {
-
+					System.out.println("L'admin  existe déjà");
 				}
 			} catch (SQLException e) {
 				e.printStackTrace();
@@ -59,10 +52,16 @@ final class Base implements CRUD {
 				pre.setString(1, u.getLogin());
 				re = pre.executeQuery();
 				if (re.getRow() == 0) {
-					sql = "insert into administrateurs values ()";
-
+					sql = "insert into etudiants values (?,?,?,?)";
+					pre = con.prepareStatement(sql);
+					pre.setString(1, u.getLogin());
+					pre.setString(2, u.getNom());
+					pre.setString(1, u.getPrenom());
+					pre.setString(1, u.getPassword());
+					re = pre.executeQuery();
+					con.close();
 				} else {
-
+					System.out.println("L'etudiant existe déjà");
 				}
 			} catch (SQLException e) {
 				e.printStackTrace();
@@ -77,20 +76,6 @@ final class Base implements CRUD {
 	public void insert(Notes u) {
 
 	}
-
-	/*
-	 * public void display(Etudiant e) {
-	 * String sql = "select * from etudiants ";
-	 * try {
-	 * pre = con.prepareStatement(sql);
-	 * re = pre.executeQuery();
-	 * while (re.next()) {
-	 * // Gestion de l'affichage
-	 * }
-	 * } catch (Exception ex) {
-	 * ex.getMessage();
-	 * }
-	 */
 
 	public void display(Cours c) {
 
@@ -125,7 +110,7 @@ final class Base implements CRUD {
 
 		System.out.println(b.con);
 		b.connection();
-		System.out.println(b.con);
+		b.insert(new Etudiant("Fall", "Ibrahima", "ibousv", "31012003"));
 	}
 
 }
