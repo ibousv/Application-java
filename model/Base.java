@@ -68,20 +68,18 @@ final class Base implements CRUD {
 
 	}
 
-	/*
-	 * public void display(Etudiant e) {
-	 * String sql = "select * from etudiants ";
-	 * try {
-	 * pre = con.prepareStatement(sql);
-	 * re = pre.executeQuery();
-	 * while (re.next()) {
-	 * // Gestion de l'affichage
-	 * }
-	 * } catch (Exception ex) {
-	 * ex.getMessage();
-	 * }
-	 * }
-	 */
+	public void display(Etudiant e) {
+		String sql = "select * from etudiants ";
+		try {
+			pre = con.prepareStatement(sql);
+			re = pre.executeQuery();
+			while (re.next()) {
+				// Gestion de l'affichage
+			}
+		} catch (Exception ex) {
+			ex.getMessage();
+		}
+	}
 
 	public void display(Cours c) {
 
@@ -108,11 +106,6 @@ final class Base implements CRUD {
 	}
 
 	public void delete(Cours c) {
-
-	}
-
-	
-	public void display(Etudiant e) {
 
 	}
 
