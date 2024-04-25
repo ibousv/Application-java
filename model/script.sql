@@ -7,6 +7,7 @@ CREATE TABLE cours ( nom varchar(20) PRIMARY KEY,
 
 CREATE TABLE administrateurs(login  varchar(20) PRIMARY KEY,
                              nom varchar(50),
+                             prenom varchar(50),
                              motpasse varchar(50)
                              );
 
@@ -22,3 +23,5 @@ CREATE TABLE notes( valeur int,
                    FOREIGN KEY(nom_cours) REFERENCES cours(nom),
                    FOREIGN KEY(login_etudiant) REFERENCES etudiants(login)
                    );
+
+select * from administrateurs;
