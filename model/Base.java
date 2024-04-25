@@ -235,13 +235,5 @@ final class Base implements CRUD {
 		}
 	}
 
-	public static void main(String[] args) {
-		Base b = new Base();
-		b.connection();
-		Cours co = new Cours("JAVA", "Mr Mbaye");
-	
-		Etudiant et = new Etudiant("Fall", "Ibrahima", "ibousv", "31012003");
-		Notes no = new Notes(20, co, et);
-		b.insert(no);
-	}
+
 }
