@@ -17,33 +17,5 @@ public class Administrateur extends Utilisateur {
 
 	Base base = new Base();
 
-	public void inscriptEt(Etudiant e) {
-		base.connection();
-
-	}
-
-	public void modEt() {
-
-	}
-
-	public void suppEt() {
-
-	}
-
-	public void getNotes() {
-
-	}
-
-	public void getCours() {
-
-	}
-
-	public void getEtudiants() {
-
-	}
-
-	public long getId() {
-		return 0;
-	}
 
 }
