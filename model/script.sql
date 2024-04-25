@@ -1,8 +1,6 @@
 CREATE DATABASE ags;
 USE ags;
 
-
-
 CREATE TABLE cours ( nom varchar(20) PRIMARY KEY,
                      enseignant varchar(100)
                     );
