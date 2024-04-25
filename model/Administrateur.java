@@ -1,7 +1,5 @@
 package model;
 
-import java.util.ArrayList;
-
 public class Administrateur extends Utilisateur {
 
 	Base base = new Base();
@@ -9,5 +7,5 @@ public class Administrateur extends Utilisateur {
 	public Administrateur(String nom, String prenom, String login, String password) {
 		super(nom, prenom, login, password);
 
-	}
+	}	
 }
