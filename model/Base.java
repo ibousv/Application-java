@@ -89,7 +89,8 @@ final class Base implements CRUD {
 	public void delete(Cours c) {
 		String sql = "select * from cours where nom = ?";
 		try {
-			pre = con.prepareStatement(sql);
+			pre = con.prepareStatement(sql, ResultSet.TYPE_SCROLL_INSENSITIVE,
+					ResultSet.CONCUR_UPDATABLE);
 			pre.setString(1, c.getNom());
 			re = pre.executeQuery();
 			if (re.getRow() == 1) {
@@ -108,9 +109,11 @@ final class Base implements CRUD {
 	public void update(Cours c) {
 		String sql = "select * from cours where nom = ?";
 		try {
-			pre = con.prepareStatement(sql);
+			pre = con.prepareStatement(sql, ResultSet.TYPE_SCROLL_INSENSITIVE,
+					ResultSet.CONCUR_UPDATABLE);
 			pre.setString(1, c.getNom());
 			re = pre.executeQuery();
+			re.last();
 			if (re.getRow() == 1) {
 				sql = "update cours set enseignant = ? where nom = ?";
 				pre = con.prepareStatement(sql);
@@ -120,7 +123,7 @@ final class Base implements CRUD {
 				con.close();
 			}
 		} catch (SQLException e) {
-			System.out.println("Une erreur est survenu");
+			System.out.println("Une erreur est survenu :"+e.getMessage());
 		}
 	}
 
@@ -128,9 +131,11 @@ final class Base implements CRUD {
 	public void update(Etudiant e) {
 		String sql = "select * from etudiants where login = ?";
 		try {
-			pre = con.prepareStatement(sql);
+			pre = con.prepareStatement(sql, ResultSet.TYPE_SCROLL_INSENSITIVE,
+					ResultSet.CONCUR_UPDATABLE);
 			pre.setString(1, e.getLogin());
 			re = pre.executeQuery();
+			re.last();
 			if (re.getRow() == 1) {
 				sql = "update etudiants set nom = ? , prenom = ? , motpasse = ? where login = ?";
 				pre = con.prepareStatement(sql);
@@ -143,7 +148,7 @@ final class Base implements CRUD {
 			}
 
 		} catch (SQLException ex) {
-			System.out.println("L'etudiant existe déjà");
+			System.out.println("L'etudiant existe déjà :"+ ex.getMessage());
 		}
 	}
 
@@ -151,9 +156,11 @@ final class Base implements CRUD {
 	public void delete(Etudiant e) {
 		String sql = "select * from etudiants where login = ?";
 		try {
-			pre = con.prepareStatement(sql);
+			pre = con.prepareStatement(sql, ResultSet.TYPE_SCROLL_INSENSITIVE,
+					ResultSet.CONCUR_UPDATABLE);
 			pre.setString(1, e.getLogin());
 			re = pre.executeQuery();
+			re.last();
 			if (re.getRow() == 1) {
 				sql = "delete from etudiants where login = ?";
 				pre = con.prepareStatement(sql);
@@ -162,7 +169,7 @@ final class Base implements CRUD {
 				con.close();
 			}
 		} catch (SQLException ex) {
-			System.out.println("Une erreur est survenu");
+			System.out.println("Une erreur est survenu :"+ex.getMessage());
 		}
 	}
 
@@ -190,39 +197,41 @@ final class Base implements CRUD {
 
 	@Override
 	public void update(Notes n) {
-		String sql = "select * from notes where nom_cours = ? and login_etudiant = ? ";
+		String sql = "select valeur from notes where nom_cours = ? and login_etudiant = ? ";
 		try {
-			pre = con.prepareStatement(sql);
-			pre.setString(1, n.getEtudiant().getLogin());
-			pre.setString(2, n.getCours().getNom());
+			pre = con.prepareStatement(sql, ResultSet.TYPE_SCROLL_INSENSITIVE,
+					ResultSet.CONCUR_UPDATABLE);
+			pre.setString(2, n.getEtudiant().getLogin());
+			pre.setString(1, n.getCours().getNom());
 			re = pre.executeQuery();
-
+			re.last();
 			if (re.getRow() == 1) {
-				sql = "update set valeur = ? where login_etudiant = ?";
+				sql = "update notes set valeur = ? where login_etudiant = ? and nom_cours = ?";
 				pre = con.prepareStatement(sql);
 				pre.setInt(1, n.getValeur());
-				pre.setString(2, n.getCours().getNom());
-				pre.setString(3, n.getEtudiant().getLogin());
+				pre.setString(2, n.getEtudiant().getLogin());
+				pre.setString(3, n.getCours().getNom());
+
 				pre.execute();
 				con.close();
 			}
 		} catch (SQLException ex) {
-			System.out.println("Une erreur est survenu");
+			System.out.println("Une erreur est survenu :"+ex.getMessage());
 		}
 	}
 
 	@Override
 	public void display(Etudiant e) {
-		String sql = "select nom_cours, valeur from notes where login = ?";
+		String sql = "select nom_cours, valeur from notes where login_etudiant = ?";
 		try {
 			pre = con.prepareStatement(sql);
 			pre.setString(1, e.getLogin());
 			re = pre.executeQuery();
 			while (re.next()) {
-				System.out.println(re.getString("Cours") + re.getInt("Notes"));
+				System.out.println(re.getString("nom_cours") +" "+ re.getInt("valeur"));
 			}
 		} catch (Exception ex) {
-			System.out.println("Une erreur est survenue.");
+			System.out.println("Une erreur est survenue :"+ex.getMessage());
 		}
 	}
 
@@ -231,9 +240,8 @@ final class Base implements CRUD {
 		b.connection();
 		Cours co = new Cours("JAVA", "Mr Mbaye");
 	
-		Etudiant et = new Etudiant("Sow", "Moussa", "msow", "2002");
-		Notes no = new Notes(17, co, et);
+		Etudiant et = new Etudiant("Fall", "Ibrahima", "ibousv", "31012003");
+		Notes no = new Notes(20, co, et);
 		b.insert(no);
-
 	}
 }
