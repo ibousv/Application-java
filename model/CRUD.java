@@ -27,5 +27,5 @@ interface CRUD {
 
 	void update(Notes n);
 
-	void display(Notes n);
+	void display(Etudiant e);
 }
