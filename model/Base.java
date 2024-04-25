@@ -168,37 +168,67 @@ final class Base implements CRUD {
 				pre.execute();
 				con.close();
 			}
+		} catch (SQLException ex) {
+			System.out.println("Une erreur est survenu");
+		}
 	}
 
 	@Override
 	public void insert(Notes n) {
-		// TODO Auto-generated method stub
-		throw new UnsupportedOperationException("Unimplemented method 'insert'");
+		String sql = "select * from notes where login_etudiant = ? and nom_cours = ?";
+		try {
+			pre.setString(1, n.getEtudiant().getLogin());
+			pre.setString(2, n.getCours().getNom());
+			re = pre.executeQuery();
+
+			if (re.getRow() == 0) {
+				sql = "insert into notes values (?,?,?)";
+				pre = con.prepareStatement(sql);
+				pre.setInt(1, n.getValeur());
+				pre.setString(2, n.getCours().getNom());
+				pre.setString(3, n.getEtudiant().getLogin());
+				pre.execute();
+				con.close();
+			}
+		} catch (SQLException ex) {
+			System.out.println("Une erreur est survenu");
+		}
 	}
 
 	@Override
 	public void update(Notes n) {
-		// TODO Auto-generated method stub
-		throw new UnsupportedOperationException("Unimplemented method 'update'");
+		String sql = "select * from notes where nom_cours = ? and login_etudiant = ? ";
+		try {
+			pre.setString(1, n.getEtudiant().getLogin());
+			pre.setString(2, n.getCours().getNom());
+			re = pre.executeQuery();
+
+			if (re.getRow() == 1) {
+				sql = "update set valeur = ? where login_etudiant = ?";
+				pre = con.prepareStatement(sql);
+				pre.setInt(1, n.getValeur());
+				pre.setString(2, n.getCours().getNom());
+				pre.setString(3, n.getEtudiant().getLogin());
+				pre.execute();
+				con.close();
+			}
+		} catch (SQLException ex) {
+			System.out.println("Une erreur est survenu");
+		}
 	}
 
 	@Override
 	public void display(Etudiant e) {
-		String sql = "select  from notes where login = ?";
+		String sql = "select nom_cours, valeur from notes where login = ?";
 		try {
 			pre = con.prepareStatement(sql);
 			pre.setString(1, e.getLogin());
 			re = pre.executeQuery();
-			if (re.getRow() == 1) {
-				sql = "update etudiants set nom = ? , prenom = ? , motpasse = ? where login = ?";
-				pre = con.prepareStatement(sql);
-				pre.setString(1, e.getNom());
-				pre.setString(2, e.getPrenom());
-				pre.setString(3, e.getPassword());
-				pre.setString(4, e.getLogin());
-				pre.execute();
-				con.close();
+			while (re.next()) {
+				System.out.println(re.getString("Cours") + re.getInt("Notes"));
 			}
+		} catch (Exception ex) {
+			System.out.println("Une erreur est survenue.");
+		}
 	}
-
 }
