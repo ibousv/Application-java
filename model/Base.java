@@ -182,8 +182,9 @@ final class Base implements CRUD {
 				pre.execute();
 				con.close();
 			}
+
 		} catch (SQLException ex) {
-			System.out.println("Une erreur est survenu");
+			System.out.println("Une erreur est survenu :"+ ex.getMessage());
 		}
 	}
 
@@ -229,6 +230,7 @@ final class Base implements CRUD {
 		Base b = new Base();
 		b.connection();
 		Cours co = new Cours("JAVA", "Mr Mbaye");
+	
 		Etudiant et = new Etudiant("Sow", "Moussa", "msow", "2002");
 		Notes no = new Notes(17, co, et);
 		b.insert(no);

@@ -23,5 +23,3 @@ CREATE TABLE notes( valeur int,
                    FOREIGN KEY(nom_cours) REFERENCES cours(nom),
                    FOREIGN KEY(login_etudiant) REFERENCES etudiants(login)
                    );
-
-select * from notes;
