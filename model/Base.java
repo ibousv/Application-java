@@ -22,16 +22,18 @@ final class Base implements CRUD {
 		}
 	}
 
-	public void testDisplay() throws Exception {
-		String sql = "show tables ";
-		pre = con.prepareStatement(sql);
-		re = pre.executeQuery();
-		while (re.next()) {
-			String name = re.getString("Tables_in_ags");
-			System.out.println(name);
-		}
-
-	}
+	/*
+	 * public void testDisplay() throws Exception {
+	 * String sql = "show tables ";
+	 * pre = con.prepareStatement(sql);
+	 * re = pre.executeQuery();
+	 * while (re.next()) {
+	 * String name = re.getString("Tables_in_ags");
+	 * System.out.println(name);
+	 * }
+	 * 
+	 * }
+	 */
 
 	public void insert(Utilisateur u) {
 		if (u instanceof Administrateur) {
@@ -42,6 +44,8 @@ final class Base implements CRUD {
 				re = pre.executeQuery();
 				if (re.getRow() == 0) {
 					sql = "insert into administrateurs values ()";
+
+				} else {
 
 				}
 			} catch (SQLException e) {
@@ -54,6 +58,12 @@ final class Base implements CRUD {
 				pre = con.prepareStatement(sql);
 				pre.setString(1, u.getLogin());
 				re = pre.executeQuery();
+				if (re.getRow() == 0) {
+					sql = "insert into administrateurs values ()";
+
+				} else {
+
+				}
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
@@ -68,18 +78,19 @@ final class Base implements CRUD {
 
 	}
 
-	public void display(Etudiant e) {
-		String sql = "select * from etudiants ";
-		try {
-			pre = con.prepareStatement(sql);
-			re = pre.executeQuery();
-			while (re.next()) {
-				// Gestion de l'affichage
-			}
-		} catch (Exception ex) {
-			ex.getMessage();
-		}
-	}
+	/*
+	 * public void display(Etudiant e) {
+	 * String sql = "select * from etudiants ";
+	 * try {
+	 * pre = con.prepareStatement(sql);
+	 * re = pre.executeQuery();
+	 * while (re.next()) {
+	 * // Gestion de l'affichage
+	 * }
+	 * } catch (Exception ex) {
+	 * ex.getMessage();
+	 * }
+	 */
 
 	public void display(Cours c) {
 
@@ -116,4 +127,5 @@ final class Base implements CRUD {
 		b.connection();
 		System.out.println(b.con);
 	}
+
 }
