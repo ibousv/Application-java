@@ -60,11 +60,10 @@ final class Base implements CRUD {
 					pre.setString(4, u.getPassword());
 					pre.execute();
 					con.close();
-				} else {
-					System.out.println("L'etudiant existe déjà");
 				}
+
 			} catch (SQLException e) {
-				e.printStackTrace();
+				System.out.println("L'etudiant existe déjà");
 			}
 		}
 	}
@@ -107,8 +106,6 @@ final class Base implements CRUD {
 
 	public static void main(String[] args) {
 		Base b = new Base();
-
-		System.out.println(b.con);
 		b.connection();
 		b.insert(new Etudiant("Fall", "Ibrahima", "ibousv", "31012003"));
 	}
