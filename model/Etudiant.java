@@ -11,7 +11,7 @@ public class Etudiant extends Utilisateur {
 
     }
 
-    void ListerNotes() {
+    public void ListerNotes() {
         for (Notes notes : mesNotes) {
             System.out.println(notes.getValeur());
         }
