@@ -1,10 +1,6 @@
 package model;
 
-import java.util.ArrayList;
-
 public class Etudiant extends Utilisateur {
-
-    private ArrayList<Notes> mesNotes = new ArrayList<Notes>();
 
     public Etudiant(String nom, String prenom, String login, String password) {
         super(nom, prenom, login, password);
@@ -12,8 +8,8 @@ public class Etudiant extends Utilisateur {
     }
 
     public void ListerNotes() {
-        for (Notes notes : mesNotes) {
-            System.out.println(notes.getValeur());
-        }
+        Base b = new Base();
+        b.connection();
+        b.display(this);
     }
 }
