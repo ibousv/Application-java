@@ -36,13 +36,11 @@ final class Base implements CRUD {
 					pre.setString(2, u.getNom());
 					pre.setString(3, u.getPrenom());
 					pre.setString(4, u.getPassword());
-					re = pre.executeQuery();
+					pre.execute();
 					con.close();
-				} else {
-					System.out.println("L'admin  existe déjà");
 				}
 			} catch (SQLException e) {
-				e.printStackTrace();
+				System.out.println("L'admin  existe déjà");
 			}
 
 		} else {
@@ -68,46 +66,139 @@ final class Base implements CRUD {
 		}
 	}
 
-	public void insert(Cours c) {
-
-	}
-
-	public void insert(Notes u) {
-
-	}
-
-	public void display(Cours c) {
-
-	}
-
-	public void display(Notes n) {
-
-	}
-
-	public void update(Etudiant u) {
-
-	}
-
-	public void update(Cours c) {
-
-	}
-
-	public void update(Notes n) {
-
-	}
-
-	public void delete(Etudiant e) {
-
-	}
-
-	public void delete(Cours c) {
-
-	}
-
 	public static void main(String[] args) {
 		Base b = new Base();
 		b.connection();
 		b.insert(new Etudiant("Fall", "Ibrahima", "ibousv", "31012003"));
+	}
+
+	@Override
+	public void insert(Cours c) {
+		String sql = "select * from cours where nom = ?";
+		try {
+			pre = con.prepareStatement(sql);
+			pre.setString(1, c.getNom());
+			re = pre.executeQuery();
+			if (re.getRow() == 0) {
+				sql = "insert into cours values (?,?)";
+				pre = con.prepareStatement(sql);
+				pre.setString(1, c.getNom());
+				pre.setString(2, c.getEnseignant());
+				pre.execute();
+				con.close();
+			}
+		} catch (SQLException e) {
+			System.out.println("Ce cours existe déjà");
+		}
+	}
+
+	@Override
+	public void delete(Cours c) {
+		String sql = "select * from cours where nom = ?";
+		try {
+			pre = con.prepareStatement(sql);
+			pre.setString(1, c.getNom());
+			re = pre.executeQuery();
+			if (re.getRow() == 1) {
+				sql = "delete from cours where nom = ?";
+				pre = con.prepareStatement(sql);
+				pre.setString(1, c.getEnseignant());
+				pre.execute();
+				con.close();
+			}
+		} catch (SQLException e) {
+			System.out.println("Une erreur est survenu");
+		}
+	}
+
+	@Override
+	public void update(Cours c) {
+		String sql = "select * from cours where nom = ?";
+		try {
+			pre = con.prepareStatement(sql);
+			pre.setString(1, c.getNom());
+			re = pre.executeQuery();
+			if (re.getRow() == 1) {
+				sql = "update cours set enseignant = ? where nom = ?";
+				pre = con.prepareStatement(sql);
+				pre.setString(1, c.getEnseignant());
+				pre.setString(2, c.getNom());
+				pre.execute();
+				con.close();
+			}
+		} catch (SQLException e) {
+			System.out.println("Une erreur est survenu");
+		}
+	}
+
+	@Override
+	public void update(Etudiant e) {
+		String sql = "select * from etudiants where login = ?";
+		try {
+			pre = con.prepareStatement(sql);
+			pre.setString(1, e.getLogin());
+			re = pre.executeQuery();
+			if (re.getRow() == 1) {
+				sql = "update etudiants set nom = ? , prenom = ? , motpasse = ? where login = ?";
+				pre = con.prepareStatement(sql);
+				pre.setString(1, e.getNom());
+				pre.setString(2, e.getPrenom());
+				pre.setString(3, e.getPassword());
+				pre.setString(4, e.getLogin());
+				pre.execute();
+				con.close();
+			}
+
+		} catch (SQLException ex) {
+			System.out.println("L'etudiant existe déjà");
+		}
+	}
+
+	@Override
+	public void delete(Etudiant e) {
+		String sql = "select * from etudiants where login = ?";
+		try {
+			pre = con.prepareStatement(sql);
+			pre.setString(1, e.getLogin());
+			re = pre.executeQuery();
+			if (re.getRow() == 1) {
+				sql = "delete from etudiants where login = ?";
+				pre = con.prepareStatement(sql);
+				pre.setString(1, e.getLogin());
+				pre.execute();
+				con.close();
+			}
+	}
+
+	@Override
+	public void insert(Notes n) {
+		// TODO Auto-generated method stub
+		throw new UnsupportedOperationException("Unimplemented method 'insert'");
+	}
+
+	@Override
+	public void update(Notes n) {
+		// TODO Auto-generated method stub
+		throw new UnsupportedOperationException("Unimplemented method 'update'");
+	}
+
+	@Override
+	public void display(Etudiant e) {
+		String sql = "select  from notes where login = ?";
+		try {
+			pre = con.prepareStatement(sql);
+			pre.setString(1, e.getLogin());
+			re = pre.executeQuery();
+			if (re.getRow() == 1) {
+				sql = "update etudiants set nom = ? , prenom = ? , motpasse = ? where login = ?";
+				pre = con.prepareStatement(sql);
+				pre.setString(1, e.getNom());
+				pre.setString(2, e.getPrenom());
+				pre.setString(3, e.getPassword());
+				pre.setString(4, e.getLogin());
+				pre.execute();
+				con.close();
+			}
 	}
 
 }
