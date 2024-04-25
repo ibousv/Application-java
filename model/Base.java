@@ -40,7 +40,7 @@ final class Base implements CRUD {
 				pre = con.prepareStatement(sql);
 				pre.setString(1, u.getLogin());
 				re = pre.executeQuery();
-				if (re.next()) {
+				if (re.getRow() == 0) {
 					sql = "insert into administrateurs values ()";
 
 				}
