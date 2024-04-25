@@ -168,12 +168,11 @@ final class Base implements CRUD {
 
 	@Override
 	public void insert(Notes n) {
-		String sql = "select * from notes where login_etudiant = ? and nom_cours = ?";
+		String sql = "select * from notes where nom_cours = ?";
 		try {
-			pre.setString(1, n.getEtudiant().getLogin());
-			pre.setString(2, n.getCours().getNom());
+			pre = con.prepareStatement(sql);
+			pre.setString(1, n.getCours().getNom());
 			re = pre.executeQuery();
-
 			if (re.getRow() == 0) {
 				sql = "insert into notes values (?,?,?)";
 				pre = con.prepareStatement(sql);
@@ -192,6 +191,7 @@ final class Base implements CRUD {
 	public void update(Notes n) {
 		String sql = "select * from notes where nom_cours = ? and login_etudiant = ? ";
 		try {
+			pre = con.prepareStatement(sql);
 			pre.setString(1, n.getEtudiant().getLogin());
 			pre.setString(2, n.getCours().getNom());
 			re = pre.executeQuery();
@@ -228,7 +228,10 @@ final class Base implements CRUD {
 	public static void main(String[] args) {
 		Base b = new Base();
 		b.connection();
-		Administrateur ad = new Administrateur("Mbaye", "Abdoulaye", "ambaye", "ambaye1283");
-		b.insert(ad);
+		Cours co = new Cours("JAVA", "Mr Mbaye");
+		Etudiant et = new Etudiant("Sow", "Moussa", "msow", "2002");
+		Notes no = new Notes(17, co, et);
+		b.insert(no);
+
 	}
 }

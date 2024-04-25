@@ -24,4 +24,4 @@ CREATE TABLE notes( valeur int,
                    FOREIGN KEY(login_etudiant) REFERENCES etudiants(login)
                    );
 
-select * from administrateurs;
+select * from notes;
