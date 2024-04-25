@@ -30,10 +30,30 @@ final class Base implements CRUD {
 			String name = re.getString("Tables_in_ags");
 			System.out.println(name);
 		}
+
 	}
 
 	public void insert(Utilisateur u) {
+		if (u instanceof Administrateur) {
+			String sql = "select * from administrateurs where login = ?";
+			try {
+				pre = con.prepareStatement(sql);
+				pre.setString(1, u.getLogin());
+				re = pre.executeQuery();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 
+		} else {
+			String sql = "select * from etudiants where login = ?";
+			try {
+				pre = con.prepareStatement(sql);
+				pre.setString(1, u.getLogin());
+				re = pre.executeQuery();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
 	}
 
 	public void insert(Cours c) {
@@ -44,18 +64,20 @@ final class Base implements CRUD {
 
 	}
 
-	public void display(Etudiant e) {
-		String sql = "select * from etudiants ";
-		try {
-			pre = con.prepareStatement(sql);
-			re = pre.executeQuery();
-			while (re.next()) {
-				// Gestion de l'affichage
-			}
-		} catch (Exception ex) {
-			ex.getMessage();
-		}
-	}
+	/*
+	 * public void display(Etudiant e) {
+	 * String sql = "select * from etudiants ";
+	 * try {
+	 * pre = con.prepareStatement(sql);
+	 * re = pre.executeQuery();
+	 * while (re.next()) {
+	 * // Gestion de l'affichage
+	 * }
+	 * } catch (Exception ex) {
+	 * ex.getMessage();
+	 * }
+	 * }
+	 */
 
 	public void display(Cours c) {
 
@@ -85,6 +107,10 @@ final class Base implements CRUD {
 
 	}
 
-	Administrateur admin = new Administrateur(null, null, null, null);
+	@Override
+	public void display(Etudiant e) {
+		// TODO Auto-generated method stub
+		throw new UnsupportedOperationException("Unimplemented method 'display'");
+	}
 
 }
