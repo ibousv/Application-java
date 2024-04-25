@@ -85,4 +85,6 @@ final class Base implements CRUD {
 
 	}
 
+	Administrateur admin = new Administrateur(null, null, null, null);
+
 }
