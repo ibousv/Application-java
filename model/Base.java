@@ -22,54 +22,47 @@ final class Base implements CRUD {
 		}
 	}
 
-	public void insert(Utilisateur u) {
-		if (u instanceof Administrateur) {
-			String sql = "select * from administrateurs where login = ?";
-			try {
+	public void insert(Administrateur u) {
+		String sql = "select * from administrateurs where login = ?";
+		try {
+			pre = con.prepareStatement(sql);
+			pre.setString(1, u.getLogin());
+			re = pre.executeQuery();
+			if (re.getRow() == 0) {
+				sql = "insert into administrateurs values (?,?,?,?)";
 				pre = con.prepareStatement(sql);
 				pre.setString(1, u.getLogin());
-				re = pre.executeQuery();
-				if (re.getRow() == 0) {
-					sql = "insert into administrateurs values (?,?,?)";
-					pre = con.prepareStatement(sql);
-					pre.setString(1, u.getLogin());
-					pre.setString(2, u.getNom());
-					pre.setString(3, u.getPrenom());
-					pre.setString(4, u.getPassword());
-					pre.execute();
-					con.close();
-				}
-			} catch (SQLException e) {
-				System.out.println("L'admin  existe déjà");
+				pre.setString(2, u.getNom());
+				pre.setString(3, u.getPrenom());
+				pre.setString(4, u.getPassword());
+				pre.execute();
+				con.close();
 			}
-
-		} else {
-			String sql = "select * from etudiants where login = ?";
-			try {
-				pre = con.prepareStatement(sql);
-				pre.setString(1, u.getLogin());
-				re = pre.executeQuery();
-				if (re.getRow() == 0) {
-					sql = "insert into etudiants values (?,?,?,?)";
-					pre = con.prepareStatement(sql);
-					pre.setString(1, u.getLogin());
-					pre.setString(2, u.getNom());
-					pre.setString(3, u.getPrenom());
-					pre.setString(4, u.getPassword());
-					pre.execute();
-					con.close();
-				}
-
-			} catch (SQLException e) {
-				System.out.println("L'etudiant existe déjà");
-			}
+		} catch (SQLException e) {
+			System.out.println("L'admin  existe déjà");
 		}
 	}
 
-	public static void main(String[] args) {
-		Base b = new Base();
-		b.connection();
-		b.insert(new Etudiant("Fall", "Ibrahima", "ibousv", "31012003"));
+	public void insert(Etudiant u) {
+		String sql = "select * from etudiants where login = ?";
+		try {
+			pre = con.prepareStatement(sql);
+			pre.setString(1, u.getLogin());
+			re = pre.executeQuery();
+			if (re.getRow() == 0) {
+				sql = "insert into etudiants values (?,?,?,?)";
+				pre = con.prepareStatement(sql);
+				pre.setString(1, u.getLogin());
+				pre.setString(2, u.getNom());
+				pre.setString(3, u.getPrenom());
+				pre.setString(4, u.getPassword());
+				pre.execute();
+				con.close();
+			}
+
+		} catch (SQLException e) {
+			System.out.println("L'etudiant existe déjà");
+		}
 	}
 
 	@Override
@@ -230,5 +223,12 @@ final class Base implements CRUD {
 		} catch (Exception ex) {
 			System.out.println("Une erreur est survenue.");
 		}
+	}
+
+	public static void main(String[] args) {
+		Base b = new Base();
+		b.connection();
+		Administrateur ad = new Administrateur("Mbaye", "Abdoulaye", "ambaye", "ambaye1283");
+		b.insert(ad);
 	}
 }
