@@ -34,8 +34,8 @@ final class Base implements CRUD {
 					pre = con.prepareStatement(sql);
 					pre.setString(1, u.getLogin());
 					pre.setString(2, u.getNom());
-					pre.setString(1, u.getPrenom());
-					pre.setString(1, u.getPassword());
+					pre.setString(3, u.getPrenom());
+					pre.setString(4, u.getPassword());
 					re = pre.executeQuery();
 					con.close();
 				} else {
@@ -56,9 +56,9 @@ final class Base implements CRUD {
 					pre = con.prepareStatement(sql);
 					pre.setString(1, u.getLogin());
 					pre.setString(2, u.getNom());
-					pre.setString(1, u.getPrenom());
-					pre.setString(1, u.getPassword());
-					re = pre.executeQuery();
+					pre.setString(3, u.getPrenom());
+					pre.setString(4, u.getPassword());
+					pre.execute();
 					con.close();
 				} else {
 					System.out.println("L'etudiant existe déjà");
