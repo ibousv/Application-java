@@ -17,7 +17,9 @@ interface CRUD {
 
 	void delete(Cours c);
 
-	void insert(Utilisateur u);
+	void insert(Administrateur u);
+
+	void insert(Etudiant u);
 
 	void update(Etudiant e);
 
