@@ -6,30 +6,10 @@
     "configurations": [
         {
             "type": "java",
-            "name": "Base",
-            "request": "launch",
-            "mainClass": "model.Base",
-            "projectName": "Application-java_15f82168"
-        },
-        {
-            "type": "java",
             "name": "MainView",
             "request": "launch",
             "mainClass": "view.MainView",
-            "projectName": "Application-java_15f82168"
-        },
-        {
-            "type": "java",
-            "name": "Current File",
-            "request": "launch",
-            "mainClass": "${file}"
-        },
-        {
-            "type": "java",
-            "name": "Administrateur",
-            "request": "launch",
-            "mainClass": "model.Administrateur",
-            "projectName": "Application-java_15f82168"
+            "projectName": "Application-java_968fb86b"
         }
     ]
 }
