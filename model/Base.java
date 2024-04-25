@@ -40,6 +40,10 @@ final class Base implements CRUD {
 				pre = con.prepareStatement(sql);
 				pre.setString(1, u.getLogin());
 				re = pre.executeQuery();
+				if (re.next()) {
+					sql = "insert into administrateurs values ()";
+
+				}
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
@@ -107,10 +111,16 @@ final class Base implements CRUD {
 
 	}
 
-	@Override
+	
 	public void display(Etudiant e) {
-		// TODO Auto-generated method stub
-		throw new UnsupportedOperationException("Unimplemented method 'display'");
+
 	}
 
+	public static void main(String[] args) {
+		Base b = new Base();
+
+		System.out.println(b.con);
+		b.connection();
+		System.out.println(b.con);
+	}
 }
