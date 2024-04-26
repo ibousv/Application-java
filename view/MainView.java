@@ -1,8 +1,6 @@
 
 package view;
 
-import javax.swing.plaf.basic.BasicTabbedPaneUI.MouseHandler;
-
 /**
  *
  * @author ib

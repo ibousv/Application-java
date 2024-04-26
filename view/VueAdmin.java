@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package view;
 
 /**
@@ -15,12 +12,6 @@ public class VueAdmin extends javax.swing.JFrame {
   public VueAdmin() {
     initComponents();
   }
-
-  /**
-   * 
-   * 
-   * 
-   */
 
   private void initComponents() {
 
@@ -486,5 +477,5 @@ public class VueAdmin extends javax.swing.JFrame {
   private javax.swing.JMenuItem supp_et;
   private javax.swing.JTextField val_input;
   private javax.swing.JLabel val_note;
-  // End of variables declaration
+  // fin des variables
 }
