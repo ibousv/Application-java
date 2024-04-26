@@ -1,17 +1,13 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package view;
 
 /**
- *
  * @author ib
  */
 public class VueEtudiant extends javax.swing.JFrame {
 
     /**
-     * Creates new form VueEtudiant
+     * Vue de l'Etudiant
      */
     public VueEtudiant() {
         initComponents();
