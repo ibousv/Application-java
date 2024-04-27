@@ -57,8 +57,4 @@ public class Administrateur extends Utilisateur {
 		}
 	}
 
-	public static void main(String[] args) {
-		Administrateur testadmin = new Administrateur(null, null, null, null);
-		testadmin.pdf_QRCode_gen("ibousv", "31012003");
-	}
 }
