@@ -1,10 +1,14 @@
 
 package view;
 
+import controller.ControllerEtudiant;
+
 /**
  * @author ib
  */
 public class VueEtudiant extends javax.swing.JFrame {
+        ControllerEtudiant etudiant = new ControllerEtudiant();
+        public static VueEtudiant vueEtudiant = new VueEtudiant();
 
         /**
          * Vue de l'Etudiant
