@@ -1,5 +1,8 @@
 package controller;
 
-public class ControllerEtudiant {
+import model.Etudiant;
 
+public class ControllerEtudiant {
+  Etudiant etudiant = new Etudiant(null, null, null, null);
+  
 }
