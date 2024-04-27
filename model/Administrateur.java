@@ -26,7 +26,7 @@ public class Administrateur extends Utilisateur {
 			base.pre.setString(1, e.getLogin());
 			base.re = base.pre.executeQuery();
 			while (base.re.next()) {
-				info += base.re.getString("nom_cours") + " " + base.re.getInt("valeur") + "\n";
+				info += base.re.getString("nom_cours") + " \t" + base.re.getInt("valeur") + "\n";
 			}
 			return info;
 		} catch (Exception ex) {
@@ -41,6 +41,7 @@ public class Administrateur extends Utilisateur {
 			Document pdf = new Document();
 			PdfWriter writer = PdfWriter.getInstance(pdf, new FileOutputStream(login + "_info.pdf"));
 			pdf.open();
+			pdf.add(new Paragraph("Les information de l'étudiant: Cours et Notes obtenues" + "\n"));
 			pdf.add(new Paragraph(affiche(et)));
 			pdf.close();
 			writer.close();

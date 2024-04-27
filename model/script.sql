@@ -26,6 +26,3 @@ CREATE TABLE notes( valeur int,
 
                    
 
-
-
-select * from etudiants;
