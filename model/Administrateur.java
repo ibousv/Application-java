@@ -49,7 +49,6 @@ public class Administrateur extends Utilisateur {
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
-
 	}
 
 	public static void main(String[] args) {
