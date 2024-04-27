@@ -425,18 +425,6 @@ public class VueAdmin extends javax.swing.JFrame {
 
   }
 
-  /**
-   * @param args the command line arguments
-   */
-  public static void main(String args[]) {
-    /* Create and display the form */
-    java.awt.EventQueue.invokeLater(new Runnable() {
-      public void run() {
-        new VueAdmin().setVisible(true);
-      }
-    });
-  }
-
   // Variables declaration
   private javax.swing.JMenu admin_gc;
   private javax.swing.JMenu admin_ge;

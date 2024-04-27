@@ -20,14 +20,9 @@ CREATE TABLE etudiants( login varchar(20) PRIMARY KEY,
 CREATE TABLE notes( valeur int,
                    nom_cours varchar(50),
                    login_etudiant varchar(20),
-                   FOREIGN KEY(nom_cours) REFERENCES cours(nom),
-                   FOREIGN KEY(login_etudiant) REFERENCES etudiants(login)
-                   );
-
-
-CREATE TABLE notes( valeur int,
-                   nom_cours varchar(50),
-                   login_etudiant varchar(20),
                    FOREIGN KEY(nom_cours) REFERENCES cours(nom) on update cascade on delete cascade,
                    FOREIGN KEY(login_etudiant) REFERENCES etudiants(login) on update cascade on delete cascade
                    );
+
+                   
+

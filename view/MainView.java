@@ -1,11 +1,16 @@
 
 package view;
 
+import controller.MainController;
+
 /**
  *
  * @author ib
  */
 public class MainView extends javax.swing.JFrame {
+
+        MainController main = new MainController();
+        public static MainView mainView = new MainView();
 
         public MainView() {
                 initComponents();
@@ -188,27 +193,25 @@ public class MainView extends javax.swing.JFrame {
                 pack();
         }
 
-        private void forminput_passwordActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_forminput_passwordActionPerformed
-
+        private void forminput_passwordActionPerformed(java.awt.event.ActionEvent evt) {
+                String password = form_password.getText();
+                main.setPassword(password);
         }
 
-        private void forminput_loginActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_forminput_loginActionPerformed
+        private void forminput_loginActionPerformed(java.awt.event.ActionEvent evt) {
+                String login = form_login.getText();
+                main.setLogin(login);
         }
 
         private void form_submitMouseClicked(java.awt.event.MouseEvent evt) {
-
+                main.verify(main.getLogin(), main.getPassword());
         }
 
         /**
          * @param args the command line arguments
          */
         public static void main(String args[]) {
-
-                java.awt.EventQueue.invokeLater(new Runnable() {
-                        public void run() {
-                                new MainView().setVisible(true);
-                        }
-                });
+                MainView.mainView.setVisible(true);
         }
 
         // Variables declaration
@@ -221,5 +224,5 @@ public class MainView extends javax.swing.JFrame {
         private javax.swing.JPanel panel_form;
         private javax.swing.JPanel panel_name;
         private javax.swing.JPanel panel_tail;
-        // >End of variables declaration
+        // End of variables declaration
 }
