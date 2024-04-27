@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Administrateur",
+            "request": "launch",
+            "mainClass": "model.Administrateur",
+            "projectName": "Application-java_15f82168"
+        },
+        {
+            "type": "java",
             "name": "MainView",
             "request": "launch",
             "mainClass": "view.MainView",

@@ -223,7 +223,6 @@ final class Base implements CRUD {
 	@Override
 	public void display(Etudiant e) {
 		String sql = "select nom_cours, valeur from notes where login_etudiant = ?";
-	
 		try {
 			pre = con.prepareStatement(sql);
 			pre.setString(1, e.getLogin());
