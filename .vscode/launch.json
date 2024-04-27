@@ -13,13 +13,6 @@
         },
         {
             "type": "java",
-            "name": "MainView",
-            "request": "launch",
-            "mainClass": "view.MainView",
-            "projectName": "Application-java_15f82168"
-        },
-        {
-            "type": "java",
             "name": "VueAdmin",
             "request": "launch",
             "mainClass": "view.VueAdmin",
