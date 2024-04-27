@@ -37,11 +37,11 @@ public class Administrateur extends Utilisateur {
 		return null;
 	}
 
-	public void pdf_QRCode_gen(String login, String pass) {
-		Etudiant et = new Etudiant(null, null, login, pass);
+	public void pdf_QRCode_gen(Etudiant et) {
+
 		try {
 			Document pdf = new Document();
-			PdfWriter writer = PdfWriter.getInstance(pdf, new FileOutputStream(login + "_info.pdf"));
+			PdfWriter writer = PdfWriter.getInstance(pdf, new FileOutputStream(et.getLogin() + "_info.pdf"));
 			pdf.open();
 			pdf.add(new Paragraph("Les information de l'étudiant: Cours et Notes obtenues"));
 			pdf.add(new Paragraph(affiche(et)));
