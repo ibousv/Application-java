@@ -1,10 +1,15 @@
 
 package view;
 
+import controller.ControllerAdmin;
+
 /**
  * @author ib
  */
 public class VueAdmin extends javax.swing.JFrame {
+
+  ControllerAdmin admin = new ControllerAdmin();
+  public static VueAdmin vueAdmin = new VueAdmin();
 
   /**
    * Vue de l'administrateur
