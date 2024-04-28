@@ -33,7 +33,7 @@ final class Base implements CRUD {
 	/**
 	 * insert method
 	 * can add admin to the database
-	 * @params (Administrateur)u
+	 * @param (Administrateur)u
 	 */
 	public void insert(Administrateur u) {
 		String sql = "select * from administrateurs where login = ?";
@@ -59,7 +59,7 @@ final class Base implements CRUD {
 	/**
 	 * insert method
 	 * can add etudiant to the database
-	 * @params (Etudiant)u
+	 * @param (Etudiant)u
 	 */
 	public void insert(Etudiant u) {
 		String sql = "select * from etudiants where login = ?";
@@ -86,7 +86,7 @@ final class Base implements CRUD {
 	/**
 	 * insert method
 	 * can add Cours to the database
-	 * @params (Cours)c
+	 * @param (Cours)c
 	 */
 	public void insert(Cours c) {
 		String sql = "select * from cours where nom = ?";
@@ -110,7 +110,7 @@ final class Base implements CRUD {
 	/**
 	 * delete method
 	 * can delete Cours to the database
-	 * @params (Cours)c
+	 * @param (Cours)c
 	 */
 	public void delete(Cours c) {
 		String sql = "select * from cours where nom = ?";
@@ -134,7 +134,7 @@ final class Base implements CRUD {
 	/**
 	 * update method
 	 * can  modify Cours to the database
-	 * @params (Cours)c
+	 * @param (Cours)c
 	 */
 	public void update(Cours c) {
 		String sql = "select * from cours where nom = ?";
@@ -160,7 +160,7 @@ final class Base implements CRUD {
 	/**
 	 * update method
 	 * can modify etudiant to the database
-	 * @params (Etudiant)e
+	 * @param (Etudiant)e
 	 */
 	public void update(Etudiant e) {
 		String sql = "select * from etudiants where login = ?";
@@ -189,7 +189,7 @@ final class Base implements CRUD {
 	/**
 	 * delete method
 	 * can drop etudiant to the database
-	 * @params (Etudiant)e
+	 * @param (Etudiant)e
 	 */
 	public void delete(Etudiant e) {
 		String sql = "select * from etudiants where login = ?";
@@ -214,7 +214,7 @@ final class Base implements CRUD {
 	/**
 	 * insert method
 	 * can add Notes to the database
-	 * @params (Notes)n
+	 * @param (Notes)n
 	 */
 	public void insert(Notes n) {
 		String sql = "select * from notes where nom_cours = ?";
@@ -240,7 +240,7 @@ final class Base implements CRUD {
 	/**
 	 * update method
 	 * can modify Notes to the database
-	 * @params (Notes)n
+	 * @param (Notes)n
 	 */
 	public void update(Notes n) {
 		String sql = "select valeur from notes where nom_cours = ? and login_etudiant = ? ";
@@ -269,7 +269,7 @@ final class Base implements CRUD {
 	/**
 	 * display method
 	 *  print etudiant to the outputStream
-	 * @params (Etudiant)e
+	 * @param (Etudiant)e
 	 */
 	public void display(Etudiant e) {
 		String sql = "select nom_cours, valeur from notes where login_etudiant = ?";

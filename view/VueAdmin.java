@@ -1,9 +1,12 @@
-
+/**
+ * View package
+ */
 package view;
 
 import controller.ControllerAdmin;
 
 /**
+ * VueAdmin class
  * @author ib
  */
 public class VueAdmin extends javax.swing.JFrame {
@@ -18,6 +21,7 @@ public class VueAdmin extends javax.swing.JFrame {
     initComponents();
   }
 
+  // initialize Component
   private void initComponents() {
 
     form_cours = new javax.swing.JPanel();

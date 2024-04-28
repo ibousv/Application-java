@@ -28,7 +28,7 @@ public class Administrateur extends Utilisateur {
 	 * affiche method 
 	 * root method for pdf_QRCode_gen
 	 * duplicate from Base.display(Etudiant e)
-	 *  @params (Etudiant)e 
+	 *  @param (Etudiant)e 
 	 */
 	public String affiche(Etudiant e) {
 		base.connection();
@@ -51,7 +51,7 @@ public class Administrateur extends Utilisateur {
 	 * pdf_QRCode_gen method
 	 * can generate pdf file attached with QRCode
 	 * using itext library and zxing
-	 * @params (Etudiant)et
+	 * @param (Etudiant)et
 	 */
 	public void pdf_QRCode_gen(Etudiant et) {
 

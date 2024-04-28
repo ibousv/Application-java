@@ -1,9 +1,12 @@
-
+/**
+ * View package
+ */
 package view;
 
 import controller.ControllerEtudiant;
 
 /**
+ * VueMachine
  * @author ib
  */
 public class VueEtudiant extends javax.swing.JFrame {
@@ -16,7 +19,7 @@ public class VueEtudiant extends javax.swing.JFrame {
         public VueEtudiant() {
                 initComponents();
         }
-
+        // initialize Components
         private void initComponents() {
 
                 panel_notes = new javax.swing.JPanel();

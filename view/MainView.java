@@ -1,21 +1,24 @@
-
+/**
+ * View package
+ */
 package view;
 
 import controller.MainController;
 
 /**
- *
+ * MainView class
  * @author ib
  */
 public class MainView extends javax.swing.JFrame {
 
         MainController main = new MainController();
         public static MainView mainView = new MainView();
-
+        // Constructor
         public MainView() {
                 initComponents();
         }
 
+        //initialize Components
         private void initComponents() {
 
                 panel_name = new javax.swing.JPanel();
@@ -193,6 +196,8 @@ public class MainView extends javax.swing.JFrame {
                 pack();
         }
 
+        // Event Handlers
+        
         private void forminput_passwordActionPerformed(java.awt.event.ActionEvent evt) {
                 String password = form_password.getText();
                 main.setPassword(password);
