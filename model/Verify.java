@@ -1,16 +1,27 @@
+/**
+ * Model package
+ */
 package model;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
 import view.MainView;
 import view.VueAdmin;
 import view.VueEtudiant;
 
+/**
+ * Additional class
+ * link Model with Controller part
+ */
 public abstract class Verify {
   Base database = new Base();
 
+  /**
+   * Single method verify
+   * @params login,password
+   * 
+   */
   public void verify(String login, String password) {
     database.connection();
     String req1 = "select * from administrateurs where login = ? and motpasse = ?";

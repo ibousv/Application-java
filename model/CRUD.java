@@ -1,3 +1,6 @@
+/**
+ * Model package
+ */
 package model;
 
 /**

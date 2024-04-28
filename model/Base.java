@@ -1,15 +1,23 @@
+/**
+ * Model package
+ */
 package model;
 
 import java.sql.*;
-
 import com.mysql.cj.jdbc.Driver;
-
+/**
+ * Base class container of all database method
+ * implement CRUD interface
+ */
 final class Base implements CRUD {
 
 	Connection con;
 	PreparedStatement pre;
 	ResultSet re;
-
+	/**
+	 * Connection method
+	 * create the symlink to the database
+	 */
 	protected void connection() {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
@@ -22,6 +30,11 @@ final class Base implements CRUD {
 		}
 	}
 
+	/**
+	 * insert method
+	 * can add admin to the database
+	 * @params (Administrateur)u
+	 */
 	public void insert(Administrateur u) {
 		String sql = "select * from administrateurs where login = ?";
 		try {
@@ -43,6 +56,11 @@ final class Base implements CRUD {
 		}
 	}
 
+	/**
+	 * insert method
+	 * can add etudiant to the database
+	 * @params (Etudiant)u
+	 */
 	public void insert(Etudiant u) {
 		String sql = "select * from etudiants where login = ?";
 		try {
@@ -65,7 +83,11 @@ final class Base implements CRUD {
 		}
 	}
 
-	@Override
+	/**
+	 * insert method
+	 * can add Cours to the database
+	 * @params (Cours)c
+	 */
 	public void insert(Cours c) {
 		String sql = "select * from cours where nom = ?";
 		try {
@@ -85,7 +107,11 @@ final class Base implements CRUD {
 		}
 	}
 
-	@Override
+	/**
+	 * delete method
+	 * can delete Cours to the database
+	 * @params (Cours)c
+	 */
 	public void delete(Cours c) {
 		String sql = "select * from cours where nom = ?";
 		try {
@@ -105,7 +131,11 @@ final class Base implements CRUD {
 		}
 	}
 
-	@Override
+	/**
+	 * update method
+	 * can  modify Cours to the database
+	 * @params (Cours)c
+	 */
 	public void update(Cours c) {
 		String sql = "select * from cours where nom = ?";
 		try {
@@ -127,7 +157,11 @@ final class Base implements CRUD {
 		}
 	}
 
-	@Override
+	/**
+	 * update method
+	 * can modify etudiant to the database
+	 * @params (Etudiant)e
+	 */
 	public void update(Etudiant e) {
 		String sql = "select * from etudiants where login = ?";
 		try {
@@ -152,7 +186,11 @@ final class Base implements CRUD {
 		}
 	}
 
-	@Override
+	/**
+	 * delete method
+	 * can drop etudiant to the database
+	 * @params (Etudiant)e
+	 */
 	public void delete(Etudiant e) {
 		String sql = "select * from etudiants where login = ?";
 		try {
@@ -173,7 +211,11 @@ final class Base implements CRUD {
 		}
 	}
 
-	@Override
+	/**
+	 * insert method
+	 * can add Notes to the database
+	 * @params (Notes)n
+	 */
 	public void insert(Notes n) {
 		String sql = "select * from notes where nom_cours = ?";
 		try {
@@ -195,7 +237,11 @@ final class Base implements CRUD {
 		}
 	}
 
-	@Override
+	/**
+	 * update method
+	 * can modify Notes to the database
+	 * @params (Notes)n
+	 */
 	public void update(Notes n) {
 		String sql = "select valeur from notes where nom_cours = ? and login_etudiant = ? ";
 		try {
@@ -220,7 +266,11 @@ final class Base implements CRUD {
 		}
 	}
 
-	@Override
+	/**
+	 * display method
+	 *  print etudiant to the outputStream
+	 * @params (Etudiant)e
+	 */
 	public void display(Etudiant e) {
 		String sql = "select nom_cours, valeur from notes where login_etudiant = ?";
 		try {

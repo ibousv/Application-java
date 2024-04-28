@@ -1,17 +1,22 @@
+/**
+ * Model package
+ */
 package model;
 
+/**
+ * Cours class
+ */
 public class Cours {
 	
 	private String nom;
-
 	private String enseignant;
-
-
+	// Constructor
 	public Cours(String nom, String enseignant) {
 		this.nom = nom;
 		this.enseignant = enseignant;
 	}
 
+	// Getters and Setters
 	public String getNom() {
 		return nom;
 	}

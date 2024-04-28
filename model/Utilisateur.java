@@ -1,11 +1,19 @@
+/**
+ * Model package
+ */
 package model;
 
+/**
+ * Utilisateur class
+ * Parent of Etudiant and Administrateur
+ */
 public class Utilisateur {
 	private String nom;
 	private String prenom;
 	private String login;
 	private String password;
 	
+	// Constructor
 	public Utilisateur(String nom, String prenom, String login, String password) {
 		this.nom = nom;
 		this.prenom = prenom;
@@ -13,6 +21,7 @@ public class Utilisateur {
 		this.password = password;
 	}
 
+	// Getters and Setters
 	public String getNom() {
 		return nom;
 	}

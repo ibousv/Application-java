@@ -1,16 +1,23 @@
+/**
+ * Model package
+ */
 package model;
 
+/**
+ * Notes class
+ */
 public class Notes {
 	private int valeur;
 	private Cours cours;
 	private Etudiant etudiant;
-
+	// Constructor
 	public Notes(int valeur, Cours cours, Etudiant etudiant) {
 		this.valeur = valeur;
 		this.cours = cours;
 		this.etudiant = etudiant;
 	}
 
+	// Getters and setters
 	public int getValeur() {
 		return valeur;
 	}

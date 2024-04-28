@@ -1,3 +1,6 @@
+/**
+* Additional script 
+**/
 CREATE DATABASE ags;
 USE ags;
 

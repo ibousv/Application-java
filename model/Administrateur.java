@@ -48,7 +48,10 @@ public class Administrateur extends Utilisateur {
 		return null;
 	}
 	/**
-	 * 
+	 * pdf_QRCode_gen method
+	 * can generate pdf file attached with QRCode
+	 * using itext library and zxing
+	 * @params (Etudiant)et
 	 */
 	public void pdf_QRCode_gen(Etudiant et) {
 
