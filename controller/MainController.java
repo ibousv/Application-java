@@ -1,11 +1,19 @@
+/**
+ * Controller package
+ */
 package controller;
 
 import model.*;
-
+/**
+ * The Main Controller
+ * extend Verify class
+ */
 public class MainController extends Verify {
 
   String login;
   String password;
+
+// Getters and Settersi
 
   public String getLogin() {
     return login;

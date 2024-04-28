@@ -1,24 +1,35 @@
+/**
+ * Model package
+ */
 package model;
 
 import java.awt.Color;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.BarcodeQRCode;
 import com.itextpdf.text.pdf.PdfWriter;
 import com.itextpdf.text.Document;
 
+/**
+ *  Administrateur class
+ * extend Utilisateur
+ */
 public class Administrateur extends Utilisateur {
-
+	// Connection
 	Base base = new Base();
-
+	//Constructor
 	public Administrateur(String nom, String prenom, String login, String password) {
 		super(nom, prenom, login, password);
 
 	}
-
+	/**
+	 * affiche method 
+	 * root method for pdf_QRCode_gen
+	 * duplicate from Base.display(Etudiant e)
+	 *  @params (Etudiant)e 
+	 */
 	public String affiche(Etudiant e) {
 		base.connection();
 		String sql = "select nom_cours, valeur from notes where login_etudiant = ?";
@@ -36,7 +47,9 @@ public class Administrateur extends Utilisateur {
 		}
 		return null;
 	}
-
+	/**
+	 * 
+	 */
 	public void pdf_QRCode_gen(Etudiant et) {
 
 		try {
