@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fx.sample.MainViewController">
+   <children>
+      <Pane layoutX="-4.0" layoutY="1.0" prefHeight="400.0" prefWidth="247.0" style="-fx-background-color: #6A0DAD;">
+         <children>
+            <ImageView fitHeight="408.0" fitWidth="247.0" layoutX="-1.0" layoutY="-5.0" opacity="0.24" pickOnBounds="true">
+               <image>
+                  <Image url="@img/abstract_pattern_design_background_2007.jpg" />
+               </image>
+            </ImageView>
+            <Button layoutX="72.0" layoutY="288.0" mnemonicParsing="false" onAction="#onConnection" prefHeight="27.0" prefWidth="103.0" text="Se Connecter">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+      <Pane layoutX="243.0" layoutY="1.0" prefHeight="400.0" prefWidth="359.0" style="-fx-background-color: #FFFFFF;">
+         <children>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="105.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/NicePng_gray-circle-png_1366211.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="161.0" layoutY="227.0" text="Login">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="148.0" layoutY="299.0" text="Password">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <PasswordField fx:id="input_password" layoutX="106.0" layoutY="329.0" />
+            <TextField fx:id="input_login" layoutX="105.0" layoutY="260.0" />
+         </children></Pane>
+   </children>
+</AnchorPane>
